@@ -13,7 +13,6 @@ class SearchesController < ApplicationController
     @search = Search.new(params[:search])
 
     if @search.save
-      flash[:notice] = 'Search was successfully created.'
       redirect_to(@search)
     else
       flash[:notice] = 'throw me a frikkin bone here.'
