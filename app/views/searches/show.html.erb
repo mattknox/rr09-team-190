@@ -1,0 +1,20 @@
+<div id='playerwrapper' class="span-12">
+  <div class="span-8">Box1</div>
+  <div class="span-4">Box2</div>
+  <%= render :partial => 'form' %>
+  <div id="target">
+    <div id="psplayer">
+      You need Flash player 8+ and JavaScript enabled to view this video.
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  var list_of_vid_urls  = <%= @results.map( &:embed_url).inspect %>;
+</script>
+<%= embed_video(@results.first) if @results.first -%>
+<div id='queue' class="span-8 last">
+  <% @results.each do |res| -%>
+    <%= link_to_function(video_thumbnail(res), "write_new_vid('#{res.embed_url}')") -%>
+  <% end -%>
+</div>
+<div class="span-24">Footer</div>
