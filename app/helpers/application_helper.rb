@@ -1,4 +1,4 @@
-module SearchesHelper
+module ApplicationHelper
   def embed_video(video)
     <<-HTML
       <script type="text/javascript">
